@@ -4,6 +4,8 @@
  */
 package lab2;
 
+import java.util.List;
+
 /**
  *
  * @author Cyril
@@ -12,4 +14,6 @@ public interface HeaderData {
   void tryRegisterTerm(String term);
 
   int getTermIndex(String term);
+  
+  List<String> getTerms();
 }
