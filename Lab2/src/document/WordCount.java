@@ -4,15 +4,13 @@
  */
 package document;
 
-import java.util.ArrayList;
-
 /**
  *
  * @author Gang
  */
 public class WordCount {
-    String word;
-    int count;
+    public String word;
+    public int count;
     
     public WordCount(String word, int count) {
         this.word = word;
