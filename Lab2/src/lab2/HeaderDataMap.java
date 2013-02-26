@@ -4,7 +4,9 @@
  */
 package lab2;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -40,5 +42,26 @@ public class HeaderDataMap implements HeaderData {
     } else {
       return this.termsMap.get(term);
     }
+  }
+
+  @Override
+  public void computeIdx() {
+    int idx = 0;
+    
+    for (Map.Entry<String, Integer> entry : termsMap.entrySet()) {
+      entry.setValue(idx);
+      idx++;
+    }
+  }
+
+  @Override
+  public List<String> getTerms() {
+    List<String> termList = new ArrayList<>();
+    
+    for (String term : this.termsMap.keySet()) {
+      termList.add(term);
+    }
+
+    return termList;
   }
 }

@@ -13,6 +13,8 @@ import java.util.List;
 public interface HeaderData {
   void tryRegisterTerm(String term);
 
+  void computeIdx();
+
   int getTermIndex(String term);
   
   List<String> getTerms();
