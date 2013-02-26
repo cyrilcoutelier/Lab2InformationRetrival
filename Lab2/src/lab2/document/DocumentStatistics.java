@@ -1,4 +1,4 @@
-package document;
+package lab2.document;
 
 /*
  * To change this template, choose Tools | Templates
