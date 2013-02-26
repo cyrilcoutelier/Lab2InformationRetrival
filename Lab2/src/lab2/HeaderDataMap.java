@@ -16,7 +16,6 @@ import java.util.Map;
 public class HeaderDataMap implements HeaderData {
 
   private Map<String, Integer> termsMap = new HashMap<>();
-  int currentIdx = 0;
 
   @Override
   public void tryRegisterTerm(String term) {
@@ -30,8 +29,7 @@ public class HeaderDataMap implements HeaderData {
   }
 
   private void registerTerm(String term) {
-    this.termsMap.put(term, this.currentIdx);
-    this.currentIdx++;
+    this.termsMap.put(term, null);
   }
 
   @Override
