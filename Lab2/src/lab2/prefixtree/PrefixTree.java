@@ -2,7 +2,7 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package prefixtree;
+package lab2.prefixtree;
 
 import lab2.test.Node;
 
