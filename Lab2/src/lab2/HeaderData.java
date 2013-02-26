@@ -10,4 +10,6 @@ package lab2;
  */
 public interface HeaderData {
   void tryRegisterTerm(String term);
+
+  int getTermIndex(String term);
 }
