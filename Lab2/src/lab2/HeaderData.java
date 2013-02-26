@@ -12,6 +12,8 @@ import java.util.List;
  */
 public interface HeaderData {
   void tryRegisterTerm(String term);
+  
+  boolean isIdxValid();
 
   void computeIdx();
 

@@ -62,4 +62,9 @@ public class HeaderDataMap implements HeaderData {
 
     return termList;
   }
+
+  @Override
+  public boolean isIdxValid() {
+    throw new UnsupportedOperationException("Not supported yet.");
+  }
 }
