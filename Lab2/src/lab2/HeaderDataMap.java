@@ -16,6 +16,7 @@ import java.util.Map;
 public class HeaderDataMap implements HeaderData {
 
   private Map<String, Integer> termsMap = new HashMap<>();
+  boolean idxValid = false;
 
   @Override
   public void tryRegisterTerm(String term) {
@@ -30,6 +31,7 @@ public class HeaderDataMap implements HeaderData {
 
   private void registerTerm(String term) {
     this.termsMap.put(term, null);
+    this.idxValid = false;
   }
 
   @Override
@@ -50,6 +52,7 @@ public class HeaderDataMap implements HeaderData {
       entry.setValue(idx);
       idx++;
     }
+    this.idxValid = true;
   }
 
   @Override
@@ -65,6 +68,6 @@ public class HeaderDataMap implements HeaderData {
 
   @Override
   public boolean isIdxValid() {
-    throw new UnsupportedOperationException("Not supported yet.");
+    return this.idxValid;
   }
 }
