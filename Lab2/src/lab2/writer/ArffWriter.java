@@ -4,7 +4,6 @@
  */
 package lab2.writer;
 
-
 import java.io.PrintStream;
 import java.util.ArrayList;
 import java.util.List;
@@ -22,6 +21,7 @@ public class ArffWriter {
 
   private PrintStream ps;
   private HeaderData headerData;
+  ArrayList<ArrayList<WordCount>> documents;
   private DocumentStatistics documentStatistics;
   private String relationName;
 
@@ -49,21 +49,21 @@ public class ArffWriter {
   private void writeData() {
     this.ps.println(Section.DATA);
 
-    ArrayList<ArrayList<WordCount>> documents = documentStatistics.getDocumentStatistics();
-    for (ArrayList<WordCount> words : documents) {
-      writeDocument(words);
+    this.documents = documentStatistics.getDocumentStatistics();
+    for (ArrayList<WordCount> document : this.documents) {
+      writeDocument(document);
     }
   }
 
-  private void writeDocument(ArrayList<WordCount> words) {
+  private void writeDocument(ArrayList<WordCount> document) {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
-    for (int i = 0; i < words.size(); i++) {      
+    for (int i = 0; i < document.size(); i++) {
       if (this.isNotFirst(i)) {
         sb.append(", ");
       }
 
-      WordCount word = words.get(i);
+      WordCount word = document.get(i);
       writeValue(word, sb);
     }
     sb.append("}");
