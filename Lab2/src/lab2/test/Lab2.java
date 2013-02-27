@@ -23,7 +23,7 @@ public class Lab2 {
    * @param args the command line arguments
    */
   public static void main(String[] args) throws FileNotFoundException {
-    String usage = "lab2.test.Lab2"
+    String usage = "java lab2.test.Lab2"
             + " INDEX_PATH ARFF_PATH RELATION_NAME\n\n"
             + "This create an arff file with the given index";
     String indexPath = args[0];
