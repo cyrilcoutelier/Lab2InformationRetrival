@@ -4,6 +4,7 @@
  */
 package lab2.test;
 
+import com.sun.istack.internal.logging.Logger;
 import java.io.FileNotFoundException;
 import java.io.PrintStream;
 import java.util.ArrayList;
@@ -19,6 +20,8 @@ import lab2.writer.ArffWriter;
  */
 public class Lab2 {
 
+  static private Logger log = Logger.getLogger(Lab2.class);
+  
   /**
    * @param args the command line arguments
    */
@@ -28,7 +31,7 @@ public class Lab2 {
             + "This create an arff file with the given index";
 
     if (args.length < 3) {
-      System.out.println(usage);
+      log.severe(usage);
       System.exit(1);
     }
 
