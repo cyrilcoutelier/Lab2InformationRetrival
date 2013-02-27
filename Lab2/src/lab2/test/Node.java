@@ -5,7 +5,6 @@
 package lab2.test;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 import lab2.document.WordCount;
 
 /**
