@@ -11,6 +11,7 @@ import lab2.data.HeaderData;
 import lab2.data.HeaderDataMap;
 import lab2.document.DocumentStatistics;
 import lab2.document.WordCount;
+import lab2.writer.ArffWriter;
 
 /**
  *
@@ -30,6 +31,10 @@ public class Lab2 {
     try (PrintStream ps = new PrintStream(arffPath)) {
       DocumentStatistics statistics = new DocumentStatistics(indexPath);
       statistics.classifyFiles();
+      HeaderData headerData = createHeaderData(statistics.getCollectionStatistics());
+      ArffWriter arffWriter = new ArffWriter(ps, headerData, statistics.getDocumentStatistics(), arffPath);
+
+      arffWriter.write();
     }
   }
 
