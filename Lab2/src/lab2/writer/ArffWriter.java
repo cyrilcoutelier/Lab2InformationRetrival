@@ -24,6 +24,13 @@ public class ArffWriter {
   ArrayList<ArrayList<WordCount>> documents;
   private String relationName;
 
+  public ArffWriter(PrintStream ps, HeaderData headerData, ArrayList<ArrayList<WordCount>> documents, String relationName) {
+    this.ps = ps;
+    this.headerData = headerData;
+    this.documents = documents;
+    this.relationName = relationName;
+  }
+
   public void write() {
     writeRelation();
     writeHeader();
