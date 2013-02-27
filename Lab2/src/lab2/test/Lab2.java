@@ -26,14 +26,15 @@ public class Lab2 {
     String usage = "java lab2.test.Lab2"
             + " INDEX_PATH ARFF_PATH RELATION_NAME\n\n"
             + "This create an arff file with the given index";
-    String indexPath = args[0];
-    String arffPath = args[1];
-    String relationName = args[2];
-    if (args.length < 3)
-    {
+
+    if (args.length < 3) {
       System.out.println(usage);
       System.exit(1);
     }
+
+    String indexPath = args[0];
+    String arffPath = args[1];
+    String relationName = args[2];
 
     try (PrintStream ps = new PrintStream(arffPath)) {
       DocumentStatistics docStats = new DocumentStatistics(indexPath);
