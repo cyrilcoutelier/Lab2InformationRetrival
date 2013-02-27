@@ -22,7 +22,6 @@ public class ArffWriter {
   private PrintStream ps;
   private HeaderData headerData;
   ArrayList<ArrayList<WordCount>> documents;
-  private DocumentStatistics documentStatistics;
   private String relationName;
 
   public void write() {
@@ -49,7 +48,6 @@ public class ArffWriter {
   private void writeData() {
     this.ps.println(Section.DATA);
 
-    this.documents = documentStatistics.getDocumentStatistics();
     for (ArrayList<WordCount> document : this.documents) {
       writeDocument(document);
     }
