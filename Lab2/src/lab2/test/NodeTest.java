@@ -25,7 +25,7 @@ public class NodeTest {
     ///   node.addWord("test");
     node.addWord("testb");
     node.addWord("abc");
-    node.caculateWordCount();
+    node.calculateWordCount();
     ArrayList<WordCount> wordsInfo = node.getWordCounts();
 
     Iterator<WordCount> it = wordsInfo.iterator();

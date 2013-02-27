@@ -39,11 +39,11 @@ public class Node {
   }
 
   public ArrayList<WordCount> getWordCounts() {
-    caculateWordCount();
+    calculateWordCount();
     return wordCounts;
   }
 
-  public void caculateWordCount() {
+  public void calculateWordCount() {
     boolean end = true;
     for (int i = 0; i < 26; ++i) {
       if (children[i] != null) {
@@ -53,7 +53,7 @@ public class Node {
           wordCounts.add(new WordCount(infoString, value));
           //System.out.println("the string is : "+ infoString + " value : " + value);
         }
-        children[i].caculateWordCount();
+        children[i].calculateWordCount();
       }
     }
     if (end == true) {
