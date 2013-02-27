@@ -27,11 +27,10 @@ public class Lab2 {
             + "This create an arff file with the given index";
     String indexPath = args[0];
     String arffPath = args[1];
-
-    PrintStream ps = new PrintStream(arffPath);
-
-    DocumentStatistics statistics = new DocumentStatistics(indexPath);
-    statistics.classifyFiles();
+    try (PrintStream ps = new PrintStream(arffPath)) {
+      DocumentStatistics statistics = new DocumentStatistics(indexPath);
+      statistics.classifyFiles();
+    }
   }
 
   static private HeaderData createHeaderData(ArrayList<WordCount> collectionStatistics) {
