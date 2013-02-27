@@ -5,7 +5,6 @@
 package lab2.data;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -15,8 +14,12 @@ import java.util.Map;
  */
 public class HeaderDataMap implements HeaderData {
 
-  private Map<String, Integer> termsMap = new HashMap<>();
+  private Map<String, Integer> termsMap;
   boolean idxValid = false;
+
+  public HeaderDataMap(Map<String, Integer> termsMap) {
+    this.termsMap = termsMap;
+  }
 
   @Override
   public void tryRegisterTerm(String term) {
@@ -47,7 +50,7 @@ public class HeaderDataMap implements HeaderData {
   @Override
   public void computeIdx() {
     int idx = 0;
-    
+
     for (Map.Entry<String, Integer> entry : termsMap.entrySet()) {
       entry.setValue(idx);
       idx++;
@@ -58,7 +61,7 @@ public class HeaderDataMap implements HeaderData {
   @Override
   public List<String> getTerms() {
     List<String> termList = new ArrayList<>();
-    
+
     for (String term : this.termsMap.keySet()) {
       termList.add(term);
     }
