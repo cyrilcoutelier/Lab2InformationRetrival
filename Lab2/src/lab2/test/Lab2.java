@@ -29,6 +29,11 @@ public class Lab2 {
     String indexPath = args[0];
     String arffPath = args[1];
     String relationName = args[2];
+    if (args.length < 3)
+    {
+      System.out.println(usage);
+      System.exit(1);
+    }
 
     try (PrintStream ps = new PrintStream(arffPath)) {
       DocumentStatistics docStats = new DocumentStatistics(indexPath);
