@@ -24,15 +24,17 @@ public class Lab2 {
    */
   public static void main(String[] args) throws FileNotFoundException {
     String usage = "lab2.test.Lab2"
-            + " INDEX_PATH ARFF_PATH\n\n"
+            + " INDEX_PATH ARFF_PATH RELATION_NAME\n\n"
             + "This create an arff file with the given index";
     String indexPath = args[0];
     String arffPath = args[1];
+    String relationName = args[2];
+
     try (PrintStream ps = new PrintStream(arffPath)) {
       DocumentStatistics docStats = new DocumentStatistics(indexPath);
       docStats.classifyFiles();
       HeaderData headerData = createHeaderData(docStats.getCollectionStatistics());
-      ArffWriter arffWriter = new ArffWriter(ps, headerData, docStats.getDocumentStatistics(), arffPath);
+      ArffWriter arffWriter = new ArffWriter(ps, headerData, docStats.getDocumentStatistics(), relationName);
 
       arffWriter.write();
     }
