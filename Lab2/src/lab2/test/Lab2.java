@@ -4,6 +4,9 @@
  */
 package lab2.test;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.PrintStream;
 import java.util.ArrayList;
 import lab2.document.DocumentStatistics;
 import lab2.document.WordCount;
@@ -17,15 +20,20 @@ public class Lab2 {
   /**
    * @param args the command line arguments
    */
-  public static void main(String[] args) {
+  public static void main(String[] args) throws FileNotFoundException {
     String usage = "lab2.test.Lab2"
             + " INDEX_PATH ARFF_PATH\n\n"
             + "This create an arff file with the given index";
-    String indexPath = "";
+    String indexPath = args[0];
+    String arffPath = args[1];
     
+    PrintStream ps = new PrintStream(arffPath);
     
     DocumentStatistics statistics = new DocumentStatistics(indexPath);
     statistics.classifyFiles();
+    
+    
+    
     /*    ArrayList<ArrayList<WordCount>> documentStatistics = statistics.getDocumentStatistics();
      Iterator<ArrayList<WordCount>> docsIt = documentStatistics.iterator();
      while (docsIt.hasNext()) {
