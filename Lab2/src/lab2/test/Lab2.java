@@ -8,6 +8,8 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.PrintStream;
 import java.util.ArrayList;
+import lab2.data.HeaderData;
+import lab2.data.HeaderDataMap;
 import lab2.document.DocumentStatistics;
 import lab2.document.WordCount;
 
@@ -51,5 +53,15 @@ public class Lab2 {
     
 
     // TODO code application logic here
+  }
+
+  static private HeaderData createHeaderData(ArrayList<WordCount> collectionStatistics) {
+    HeaderData headerData = new HeaderDataMap();
+    
+    for (WordCount wordCount : collectionStatistics) {
+      headerData.tryRegisterTerm(wordCount.word);
+    }
+    
+    return headerData;
   }
 }
