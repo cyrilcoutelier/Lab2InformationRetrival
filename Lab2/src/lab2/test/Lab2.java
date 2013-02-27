@@ -21,7 +21,7 @@ import lab2.writer.ArffWriter;
 public class Lab2 {
 
   static final private Logger log = Logger.getLogger(Lab2.class.getName());
-  
+
   /**
    * @param args the command line arguments
    */
@@ -54,11 +54,11 @@ public class Lab2 {
 
     for (WordCount wordCount : collectionStatistics) {
       headerData.tryRegisterTerm(wordCount.word);
-      
-      log.info("generating term indexes");
-      headerData.computeIdx();
-      log.info("DONE");
     }
+
+    log.info("generating term indexes");
+    headerData.computeIdx();
+    log.info("DONE");
 
     return headerData;
   }
