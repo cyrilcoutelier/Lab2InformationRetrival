@@ -54,6 +54,10 @@ public class Lab2 {
 
     for (WordCount wordCount : collectionStatistics) {
       headerData.tryRegisterTerm(wordCount.word);
+      
+      log.info("generating term indexes");
+      headerData.computeIdx();
+      log.info("DONE");
     }
 
     return headerData;
