@@ -4,10 +4,10 @@
  */
 package lab2.test;
 
-import com.sun.istack.internal.logging.Logger;
 import java.io.FileNotFoundException;
 import java.io.PrintStream;
 import java.util.ArrayList;
+import java.util.logging.Logger;
 import lab2.data.HeaderData;
 import lab2.data.HeaderDataMap;
 import lab2.document.DocumentStatistics;
@@ -20,7 +20,7 @@ import lab2.writer.ArffWriter;
  */
 public class Lab2 {
 
-  static private Logger log = Logger.getLogger(Lab2.class);
+  static final private Logger log = Logger.getLogger(Lab2.class.getName());
   
   /**
    * @param args the command line arguments
