@@ -29,10 +29,10 @@ public class Lab2 {
     String indexPath = args[0];
     String arffPath = args[1];
     try (PrintStream ps = new PrintStream(arffPath)) {
-      DocumentStatistics statistics = new DocumentStatistics(indexPath);
-      statistics.classifyFiles();
-      HeaderData headerData = createHeaderData(statistics.getCollectionStatistics());
-      ArffWriter arffWriter = new ArffWriter(ps, headerData, statistics.getDocumentStatistics(), arffPath);
+      DocumentStatistics docStats = new DocumentStatistics(indexPath);
+      docStats.classifyFiles();
+      HeaderData headerData = createHeaderData(docStats.getCollectionStatistics());
+      ArffWriter arffWriter = new ArffWriter(ps, headerData, docStats.getDocumentStatistics(), arffPath);
 
       arffWriter.write();
     }
