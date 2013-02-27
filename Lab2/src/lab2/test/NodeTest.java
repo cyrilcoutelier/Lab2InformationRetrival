@@ -4,6 +4,7 @@
  */
 package lab2.test;
 
+import lab2.prefixtree.Node;
 import java.util.ArrayList;
 import java.util.Iterator;
 import lab2.document.WordCount;

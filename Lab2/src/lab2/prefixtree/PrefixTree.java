@@ -4,8 +4,6 @@
  */
 package lab2.prefixtree;
 
-import lab2.test.Node;
-
 /**
  *
  * @author Gang
