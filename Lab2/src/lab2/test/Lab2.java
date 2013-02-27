@@ -7,7 +7,7 @@ package lab2.test;
 import java.io.FileNotFoundException;
 import java.io.PrintStream;
 import java.util.ArrayList;
-import java.util.HashMap;
+import java.util.TreeMap;
 import java.util.logging.Logger;
 import lab2.data.HeaderData;
 import lab2.data.HeaderDataMap;
@@ -51,7 +51,7 @@ public class Lab2 {
   }
 
   static private HeaderData createHeaderData(ArrayList<WordCount> collectionStatistics) {
-    HeaderData headerData = new HeaderDataMap(new HashMap<String, Integer>());
+    HeaderData headerData = new HeaderDataMap(new TreeMap<String, Integer>());
 
     for (WordCount wordCount : collectionStatistics) {
       headerData.tryRegisterTerm(wordCount.word);
