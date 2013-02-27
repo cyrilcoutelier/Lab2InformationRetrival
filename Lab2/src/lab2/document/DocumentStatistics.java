@@ -27,13 +27,11 @@ public class DocumentStatistics {
 
     private ArrayList<ArrayList<WordCount>> documentStatistics;
     private ArrayList<WordCount> collectionStatistics;
-    Analyzer analyzer;
     IndexReader indexReader;
     Node documentPrefixTree;
     Node collectionPrefixTree;
 
     public DocumentStatistics(String indexPath) {
-        this.analyzer = new MyAnalyser(Version.LUCENE_40);
         documentStatistics = new ArrayList<>();
         collectionStatistics = new ArrayList<>();
         collectionPrefixTree = new Node();
