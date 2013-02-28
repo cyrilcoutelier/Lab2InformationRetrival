@@ -110,7 +110,7 @@ public class ArffWriter {
   }
 
   private void writeDocClassName(StringBuilder sb, Document document) {
-    sb.append(this.documents.size()).append(" ");
+    sb.append(this.terms.size()).append(" ");
     this.writeClassName(document.getPath(), sb);
   }
   
