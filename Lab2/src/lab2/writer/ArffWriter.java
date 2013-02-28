@@ -64,26 +64,19 @@ public class ArffWriter {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
     boolean isFirst = true;
-    
+
     for (Map.Entry<String, Integer> entry : document.getTerms().entrySet()) {
-      if (isFirst)
-      {
+      if (isFirst) {
         isFirst = false;
-      }
-      else
-      {
+      } else {
         sb.append(", ");
       }
       writeValue(entry, sb);
     }
-    
-    
+
+
     sb.append("}");
     this.ps.println(sb.toString());
-  }
-
-  private boolean isNotFirst(int idx) {
-    return idx > 0;
   }
 
   private void writeValue(Entry<String, Integer> entry, StringBuilder sb) {

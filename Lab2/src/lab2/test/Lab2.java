@@ -72,20 +72,4 @@ public class Lab2 {
       arffWriter.write();
     }
   }
-
-  private static List<List<WordCount>> createDocs(List<Map<String, Integer>> oldDocs) {
-    List<List<WordCount>> docs = new ArrayList<>();
-
-    for (Map<String, Integer> oldDoc : oldDocs) {
-      List<WordCount> doc = new ArrayList<>();
-      for (Map.Entry<String, Integer> entry : oldDoc.entrySet()) {
-        String termText = entry.getKey();
-        Integer termCount = entry.getValue();
-        WordCount term = new WordCount(termText, termCount);
-        doc.add(term);
-      }
-      docs.add(doc);
-    }
-    return docs;
-  }
 }
