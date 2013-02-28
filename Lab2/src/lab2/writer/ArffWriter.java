@@ -6,10 +6,12 @@ package lab2.writer;
 
 import java.io.PrintStream;
 import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
 import lab2.arff.AttributeType;
 import lab2.arff.Section;
 import lab2.data.HeaderData;
-import lab2.document.WordCount;
+import lab2.document.Document;
 
 /**
  *
@@ -19,10 +21,10 @@ public class ArffWriter {
 
   private PrintStream ps;
   private HeaderData headerData;
-  List<List<WordCount>> documents;
+  List<Document> documents;
   private String relationName;
 
-  public ArffWriter(PrintStream ps, HeaderData headerData, List<List<WordCount>> documents, String relationName) {
+  public ArffWriter(PrintStream ps, HeaderData headerData, List<Document> documents, String relationName) {
     this.ps = ps;
     this.headerData = headerData;
     this.documents = documents;
@@ -53,22 +55,29 @@ public class ArffWriter {
   private void writeData() {
     this.ps.println(Section.DATA);
 
-    for (List<WordCount> document : this.documents) {
+    for (Document document : this.documents) {
       writeDocument(document);
     }
   }
 
-  private void writeDocument(List<WordCount> document) {
+  private void writeDocument(Document document) {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
-    for (int i = 0; i < document.size(); i++) {
-      if (this.isNotFirst(i)) {
+    boolean isFirst = true;
+    
+    for (Map.Entry<String, Integer> entry : document.getTerms().entrySet()) {
+      if (isFirst)
+      {
+        isFirst = false;
+      }
+      else
+      {
         sb.append(", ");
       }
-
-      WordCount word = document.get(i);
-      writeValue(word, sb);
+      writeValue(entry, sb);
     }
+    
+    
     sb.append("}");
     this.ps.println(sb.toString());
   }
@@ -77,9 +86,9 @@ public class ArffWriter {
     return idx > 0;
   }
 
-  private void writeValue(WordCount word, StringBuilder sb) {
-    int wordCount = word.count;
-    int headerIdx = this.headerData.getTermIndex(word.word);
+  private void writeValue(Entry<String, Integer> entry, StringBuilder sb) {
+    int wordCount = entry.getValue();
+    int headerIdx = this.headerData.getTermIndex(entry.getKey());
 
     sb.append(headerIdx).append(" ").append(wordCount);
   }

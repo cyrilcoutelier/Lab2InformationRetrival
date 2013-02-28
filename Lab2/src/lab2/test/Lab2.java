@@ -18,9 +18,11 @@ import lab2.data.DocsDataArray;
 import lab2.data.DocsDataGlobal;
 import lab2.data.HeaderData;
 import lab2.data.HeaderDataMap;
+import lab2.document.Document;
 import lab2.document.IndexParser;
 import lab2.document.WordCount;
 import lab2.factory.DocFactory;
+import lab2.transition.Converter;
 import lab2.writer.ArffWriter;
 import org.apache.lucene.index.DirectoryReader;
 import org.apache.lucene.index.IndexReader;
@@ -64,7 +66,7 @@ public class Lab2 {
       indexParser.parse();
       headerData.computeIdx();
 
-      List<List<WordCount>> docs = createDocs(docsData.getDocs());
+      List<Document> docs = Converter.mapsToDocs(docsData.getDocs());
       ArffWriter arffWriter = new ArffWriter(ps, headerData, docs, relationName);
 
       arffWriter.write();
