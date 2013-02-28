@@ -21,10 +21,10 @@ public class ArffWriter {
 
   private PrintStream ps;
   private HeaderData headerData;
-  ArrayList<ArrayList<WordCount>> documents;
+  List<List<WordCount>> documents;
   private String relationName;
 
-  public ArffWriter(PrintStream ps, HeaderData headerData, ArrayList<ArrayList<WordCount>> documents, String relationName) {
+  public ArffWriter(PrintStream ps, HeaderData headerData, List<List<WordCount>> documents, String relationName) {
     this.ps = ps;
     this.headerData = headerData;
     this.documents = documents;
@@ -55,12 +55,12 @@ public class ArffWriter {
   private void writeData() {
     this.ps.println(Section.DATA);
 
-    for (ArrayList<WordCount> document : this.documents) {
+    for (List<WordCount> document : this.documents) {
       writeDocument(document);
     }
   }
 
-  private void writeDocument(ArrayList<WordCount> document) {
+  private void writeDocument(List<WordCount> document) {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
     for (int i = 0; i < document.size(); i++) {
