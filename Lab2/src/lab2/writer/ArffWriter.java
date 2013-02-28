@@ -5,12 +5,10 @@
 package lab2.writer;
 
 import java.io.PrintStream;
-import java.util.ArrayList;
 import java.util.List;
 import lab2.arff.AttributeType;
 import lab2.arff.Section;
 import lab2.data.HeaderData;
-import lab2.document.DocumentStatistics;
 import lab2.document.WordCount;
 
 /**
