@@ -42,7 +42,7 @@ public class IndexParser {
       String className = pathElems[pathElems.length - 1];
       
       this.indexReader.document(i, pathFieldSet);
-      this.docsData.startDoc();
+      this.docsData.startDoc(className);
 
       Terms termVector = this.indexReader.getTermVector(i, contentFieldName);
       TermsEnum termsEnum = termVector.iterator(TermsEnum.EMPTY);

@@ -9,7 +9,7 @@ package lab2.data;
  * @author Cyril
  */
 public interface DocsData {
-  void startDoc();
+  void startDoc(String className);
   void endDoc();
   void addTerm(String term);
 }

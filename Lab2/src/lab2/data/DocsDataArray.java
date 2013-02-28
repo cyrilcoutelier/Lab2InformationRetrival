@@ -24,8 +24,8 @@ public class DocsDataArray implements DocsData {
   }
 
   @Override
-  public void startDoc() {
-    this.currentDoc = this.docFactory.createDoc(null);
+  public void startDoc(String className) {
+    this.currentDoc = this.docFactory.createDoc(className);
     this.docs.add(currentDoc);
   }
 
