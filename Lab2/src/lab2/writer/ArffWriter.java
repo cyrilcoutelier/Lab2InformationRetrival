@@ -23,12 +23,14 @@ public class ArffWriter {
   private HeaderData headerData;
   List<Document> documents;
   private String relationName;
+  private final List<String> terms;
 
   public ArffWriter(PrintStream ps, HeaderData headerData, List<Document> documents, String relationName) {
     this.ps = ps;
     this.headerData = headerData;
     this.documents = documents;
     this.relationName = relationName;
+    this.terms = this.headerData.getTerms();
   }
 
   public void write() {
@@ -42,9 +44,7 @@ public class ArffWriter {
   }
 
   private void writeHeader() {
-    List<String> terms = this.headerData.getTerms();
-
-    for (String term : terms) {
+    for (String term : this.terms) {
       StringBuilder sb = new StringBuilder();
       sb.append(Section.ATTRIBUTE).append(" ").append(term);
       sb.append("\t").append(AttributeType.NUMERIC.getText());
@@ -112,7 +112,7 @@ public class ArffWriter {
   private void writeDocClassName(StringBuilder sb, Document document) {
     sb.append(this.documents.size()).append(" ");
     this.writeClassName(document.getPath(), sb);
-  }  
+  }
   
   private void writeClassName(String className, StringBuilder sb) {
     if (className.contains(" ")) {
