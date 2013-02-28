@@ -4,16 +4,16 @@
  */
 package lab2.factory;
 
-import java.util.Map;
 import java.util.TreeMap;
+import lab2.document.Document;
 
 /**
  *
  * @author Cyril
  */
 public class DocFactory {
-  public Map<String, Integer> createDoc()
+  public Document createDoc(String classLabel)
   {
-    return new TreeMap<>();
+    return new Document(classLabel, new TreeMap<String, Integer>());
   }
 }
