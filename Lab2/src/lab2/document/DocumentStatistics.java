@@ -43,8 +43,6 @@ public class DocumentStatistics {
         return documentStatistics;
     }
 
-    
-    
     public ArrayList<WordCount> getCollectionStatistics() {
         return collectionStatistics;
     }
