@@ -6,7 +6,6 @@ package lab2.data;
 
 import java.util.List;
 import java.util.Map;
-import java.util.TreeMap;
 import lab2.document.Document;
 import lab2.factory.DocFactory;
 import lab2.transition.Converter;
@@ -21,8 +20,8 @@ public class DocsDataArray implements DocsData {
   List<Document> docs;
   DocFactory docFactory;
 
-  public DocsDataArray(List<Map<String, Integer>> docs, DocFactory docFactory) {
-    this.docs = Converter.mapsToDocs(docs);
+  public DocsDataArray(List<Document> docs, DocFactory docFactory) {
+    this.docs = docs;
     this.docFactory = docFactory;
   }
 
@@ -55,7 +54,7 @@ public class DocsDataArray implements DocsData {
     return this.currentDoc.getTerms().containsKey(term);
   }
 
-  public List<Map<String, Integer>> getDocs() {
-    return Converter.docsToMaps(docs);
+  public List<Document> getDocs() {
+    return this.docs;
   }
 }

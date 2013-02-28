@@ -57,7 +57,7 @@ public class Lab2 {
     try (PrintStream ps = new PrintStream(arffPath);
             IndexReader indexReader = DirectoryReader.open(FSDirectory.open(new File(indexPath)))) {
       DocFactory docFactory = new DocFactory();
-      DocsDataArray docsData = new DocsDataArray(new ArrayList<Map<String, Integer>>(), docFactory);
+      DocsDataArray docsData = new DocsDataArray(new ArrayList<Document>(), docFactory);
       HeaderData headerData = new HeaderDataMap(new TreeMap<String, Integer>());
       DocsData globalData = new DocsDataGlobal(docsData, headerData);
       IndexParser indexParser = new IndexParser(indexReader, globalData, contentFieldName);
@@ -65,7 +65,7 @@ public class Lab2 {
       indexParser.parse();
       headerData.computeIdx();
 
-      List<Document> docs = Converter.mapsToDocs(docsData.getDocs());
+      List<Document> docs = docsData.getDocs();
       ArffWriter arffWriter = new ArffWriter(ps, headerData, docs, relationName);
 
       arffWriter.write();
