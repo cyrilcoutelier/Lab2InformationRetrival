@@ -18,6 +18,12 @@ public class DocsDataArray implements DocsData {
   List<Map<String, Integer>> docs;
   DocFactory docFactory;
 
+  public DocsDataArray(Map<String, Integer> currentDoc, List<Map<String, Integer>> docs, DocFactory docFactory) {
+    this.currentDoc = currentDoc;
+    this.docs = docs;
+    this.docFactory = docFactory;
+  }
+
   @Override
   public void startDoc() {
     this.currentDoc = this.docFactory.createDoc();
