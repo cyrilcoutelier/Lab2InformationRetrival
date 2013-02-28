@@ -20,14 +20,14 @@ public class IndexParser {
 
   IndexReader indexReader;
   DocsData docsData;
-  String fieldName;
+  String contentFieldName;
   String pathFieldName;
   Set<String> pathFieldSet;
 
   public IndexParser(IndexReader indexReader, DocsData docsData, String fieldName) {
     this.indexReader = indexReader;
     this.docsData = docsData;
-    this.fieldName = fieldName;
+    this.contentFieldName = fieldName;
     pathFieldSet = new TreeSet<>();
     
     this.pathFieldSet.add(pathFieldName);
@@ -43,7 +43,7 @@ public class IndexParser {
       this.indexReader.document(i, pathFieldSet);
       this.docsData.startDoc();
 
-      Terms termVector = this.indexReader.getTermVector(i, fieldName);
+      Terms termVector = this.indexReader.getTermVector(i, contentFieldName);
       TermsEnum termsEnum = termVector.iterator(TermsEnum.EMPTY);
       while (termsEnum.next() != null) {
         this.docsData.addTerm(termsEnum.term().utf8ToString());
