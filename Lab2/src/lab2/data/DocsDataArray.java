@@ -28,7 +28,7 @@ public class DocsDataArray implements DocsData {
 
   @Override
   public void startDoc() {
-    this.currentDoc = new Document(null, new TreeMap<String, Integer>());
+    this.currentDoc = this.docFactory.createDoc(null);
     this.docs.add(currentDoc);
   }
 
