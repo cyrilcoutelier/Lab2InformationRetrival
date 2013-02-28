@@ -13,6 +13,11 @@ public class DocsDataGlobal implements DocsData {
   DocsData docsData;
   HeaderData headerData;
 
+  public DocsDataGlobal(DocsData docsData, HeaderData headerData) {
+    this.docsData = docsData;
+    this.headerData = headerData;
+  }
+
   @Override
   public void startDoc() {
     this.docsData.startDoc();
