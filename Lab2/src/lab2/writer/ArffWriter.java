@@ -109,6 +109,11 @@ public class ArffWriter {
     sb.append(headerIdx).append(" ").append(wordCount);
   }
 
+  private void writeDocClassName(StringBuilder sb, Document document) {
+    sb.append(this.documents.size()).append(" ");
+    this.writeClassName(document.getPath(), sb);
+  }  
+  
   private void writeClassName(String className, StringBuilder sb) {
     if (className.contains(" ")) {
       sb.append("\"");
@@ -117,10 +122,5 @@ public class ArffWriter {
     if (className.contains(" ")) {
       sb.append("\"");
     }
-  }
-
-  private void writeDocClassName(StringBuilder sb, Document document) {
-    sb.append(this.documents.size()).append(" ");
-    this.writeClassName(document.getPath(), sb);
   }
 }
