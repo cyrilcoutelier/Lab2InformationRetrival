@@ -50,7 +50,7 @@ public class Lab2 {
     String indexPath = args[0];
     String arffPath = args[1];
     String relationName = args[2];
-    String fieldName = "contents";
+    String contentFieldName = "contents";
 
     try (PrintStream ps = new PrintStream(arffPath);
             IndexReader indexReader = DirectoryReader.open(FSDirectory.open(new File(indexPath)))) {
@@ -58,7 +58,7 @@ public class Lab2 {
       DocsDataArray docsData = new DocsDataArray(new ArrayList<Map<String, Integer>>(), docFactory);
       HeaderData headerData = new HeaderDataMap(new TreeMap<String, Integer>());
       DocsData globalData = new DocsDataGlobal(docsData, headerData);
-      IndexParser indexParser = new IndexParser(indexReader, globalData, fieldName);
+      IndexParser indexParser = new IndexParser(indexReader, globalData, contentFieldName);
 
       indexParser.parse();
       headerData.computeIdx();
