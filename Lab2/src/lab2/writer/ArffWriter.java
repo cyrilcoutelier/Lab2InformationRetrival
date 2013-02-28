@@ -70,6 +70,7 @@ public class ArffWriter {
     }
 
     sb.append("}");
+    this.ps.println(sb.toString());
   }
 
   private void writeData() {
