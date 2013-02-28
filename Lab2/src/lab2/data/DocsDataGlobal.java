@@ -1,0 +1,31 @@
+/*
+ * To change this template, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package lab2.data;
+
+/**
+ *
+ * @author Cyril
+ */
+public class DocsDataGlobal implements DocsData {
+
+  DocsData docsData;
+  HeaderData headerData;
+
+  @Override
+  public void startDoc() {
+    this.docsData.startDoc();
+  }
+
+  @Override
+  public void endDoc() {
+    this.docsData.endDoc();
+  }
+
+  @Override
+  public void addTerm(String term) {
+    this.docsData.addTerm(term);
+    this.headerData.tryRegisterTerm(term);
+  }
+}
