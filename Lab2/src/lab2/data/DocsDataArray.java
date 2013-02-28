@@ -52,7 +52,7 @@ public class DocsDataArray implements DocsData {
     return this.currentDoc.containsKey(term);
   }
 
-  private List<Map<String, Integer>> getDocs() {
+  public List<Map<String, Integer>> getDocs() {
     return this.docs;
   }
 }
