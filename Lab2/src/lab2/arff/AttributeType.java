@@ -11,7 +11,8 @@ package lab2.arff;
 public enum AttributeType {
 
   NUMERIC(
-  "NUMERIC");
+  "NUMERIC"),
+  NOMINAL("NOMINAL");
   private String text;
 
   private AttributeType(String text) {
