@@ -11,6 +11,7 @@ import java.io.PrintStream;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.TreeMap;
+import java.util.TreeSet;
 import java.util.logging.Logger;
 import lab2.data.DocsData;
 import lab2.data.DocsDataArray;
@@ -58,7 +59,7 @@ public class Lab2 {
       DocsDataArray docsData = new DocsDataArray(new ArrayList<Document>(), docFactory);
       HeaderData headerData = new HeaderDataMap(new TreeMap<String, Integer>());
       DocsData globalData = new DocsDataGlobal(docsData, headerData);
-      IndexParser indexParser = new IndexParser(indexReader, globalData, contentFieldName);
+      IndexParser indexParser = new IndexParser(indexReader, globalData, contentFieldName, new TreeSet<String>());
 
       indexParser.parse();
       headerData.computeIdx();

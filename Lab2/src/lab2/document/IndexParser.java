@@ -24,11 +24,11 @@ public class IndexParser {
   String pathFieldName;
   Set<String> pathFieldSet;
 
-  public IndexParser(IndexReader indexReader, DocsData docsData, String fieldName) {
+  public IndexParser(IndexReader indexReader, DocsData docsData, String fieldName, Set<String> pathFieldSet) {
     this.indexReader = indexReader;
     this.docsData = docsData;
     this.contentFieldName = fieldName;
-    pathFieldSet = new TreeSet<>();
+    this.pathFieldSet = pathFieldSet;
     
     this.pathFieldSet.add(pathFieldName);
   }
