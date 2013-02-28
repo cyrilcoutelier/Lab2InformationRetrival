@@ -21,6 +21,7 @@ public class DocsDataGlobal implements DocsData {
   @Override
   public void startDoc(String className) {
     this.docsData.startDoc(className);
+    this.headerData.addClassName(className);
   }
 
   @Override
