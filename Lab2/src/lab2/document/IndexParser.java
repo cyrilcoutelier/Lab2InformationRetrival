@@ -6,7 +6,6 @@ package lab2.document;
 
 import java.io.IOException;
 import java.util.Set;
-import java.util.TreeSet;
 import lab2.data.DocsData;
 import org.apache.lucene.index.IndexReader;
 import org.apache.lucene.index.Terms;
