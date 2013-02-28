@@ -19,7 +19,8 @@ public class HeaderDataMap implements HeaderData {
   private Map<String, Integer> termsMap;
   boolean idxValid = false;
 
-  public HeaderDataMap(Map<String, Integer> termsMap) {
+  public HeaderDataMap(Map<String, Integer> termsMap, Set<String> classNames) {
+    this.classNames = classNames;
     this.termsMap = termsMap;
   }
 

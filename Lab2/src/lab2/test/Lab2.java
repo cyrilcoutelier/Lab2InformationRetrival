@@ -57,7 +57,7 @@ public class Lab2 {
             IndexReader indexReader = DirectoryReader.open(FSDirectory.open(new File(indexPath)))) {
       DocFactory docFactory = new DocFactory();
       DocsDataArray docsData = new DocsDataArray(new ArrayList<Document>(), docFactory);
-      HeaderData headerData = new HeaderDataMap(new TreeMap<String, Integer>());
+      HeaderData headerData = new HeaderDataMap(new TreeMap<String, Integer>(), new TreeSet<String>());
       DocsData globalData = new DocsDataGlobal(docsData, headerData);
       IndexParser indexParser = new IndexParser(indexReader, globalData, contentFieldName, new TreeSet<String>(), pathFieldName);
 
