@@ -50,6 +50,26 @@ public class ArffWriter {
       sb.append("\t").append(AttributeType.NUMERIC.getText());
       this.ps.println(sb.toString());
     }
+
+    writeNominal();
+  }
+
+  private void writeNominal() {
+    StringBuilder sb = new StringBuilder();
+    sb.append(Section.ATTRIBUTE).append(" CLASS_LABEL");
+    sb.append("\t{");
+    boolean isFirst = true;
+
+    for (String className : this.headerData.getClassNames()) {
+      if (isFirst) {
+        isFirst = false;
+      } else {
+        sb.append(",");
+      }
+      writeClassName(className, sb);
+    }
+
+    sb.append("}");
   }
 
   private void writeData() {
@@ -84,5 +104,15 @@ public class ArffWriter {
     int headerIdx = this.headerData.getTermIndex(entry.getKey());
 
     sb.append(headerIdx).append(" ").append(wordCount);
+  }
+
+  private void writeClassName(String className, StringBuilder sb) {
+    if (className.contains(" ")) {
+      sb.append("\"");
+    }
+    sb.append(className);
+    if (className.contains(" ")) {
+      sb.append("\"");
+    }
   }
 }
