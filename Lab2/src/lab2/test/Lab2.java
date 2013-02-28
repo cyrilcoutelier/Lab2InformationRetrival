@@ -59,7 +59,7 @@ public class Lab2 {
       DocsDataArray docsData = new DocsDataArray(new ArrayList<Document>(), docFactory);
       HeaderData headerData = new HeaderDataMap(new TreeMap<String, Integer>());
       DocsData globalData = new DocsDataGlobal(docsData, headerData);
-      IndexParser indexParser = new IndexParser(indexReader, globalData, contentFieldName, new TreeSet<String>());
+      IndexParser indexParser = new IndexParser(indexReader, globalData, contentFieldName, new TreeSet<String>(), pathFieldName);
 
       indexParser.parse();
       headerData.computeIdx();
