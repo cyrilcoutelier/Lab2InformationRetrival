@@ -37,7 +37,7 @@ public class IndexParser {
     int maxDocs = this.indexReader.maxDoc();
     for (int i = 0; i < maxDocs; ++i) {
       String path = this.indexReader.document(i, pathFieldSet).get(pathFieldName);
-      String[] pathElems = path.split("'\\'");
+      String[] pathElems = path.split("\\\\");
       String className = pathElems[pathElems.length - 2];
       
       this.indexReader.document(i, pathFieldSet);
