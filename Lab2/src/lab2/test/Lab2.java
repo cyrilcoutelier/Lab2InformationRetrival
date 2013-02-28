@@ -51,6 +51,7 @@ public class Lab2 {
     String arffPath = args[1];
     String relationName = args[2];
     String contentFieldName = "contents";
+    String pathFieldName = "path";
 
     try (PrintStream ps = new PrintStream(arffPath);
             IndexReader indexReader = DirectoryReader.open(FSDirectory.open(new File(indexPath)))) {
