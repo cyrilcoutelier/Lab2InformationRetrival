@@ -14,12 +14,11 @@ import lab2.factory.DocFactory;
  */
 public class DocsDataArray implements DocsData {
 
-  Map<String, Integer> currentDoc;
+  Map<String, Integer> currentDoc = null;
   List<Map<String, Integer>> docs;
   DocFactory docFactory;
 
-  public DocsDataArray(Map<String, Integer> currentDoc, List<Map<String, Integer>> docs, DocFactory docFactory) {
-    this.currentDoc = currentDoc;
+  public DocsDataArray(List<Map<String, Integer>> docs, DocFactory docFactory) {
     this.docs = docs;
     this.docFactory = docFactory;
   }
