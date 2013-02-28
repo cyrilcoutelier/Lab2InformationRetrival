@@ -6,7 +6,10 @@ package lab2.data;
 
 import java.util.List;
 import java.util.Map;
+import java.util.TreeMap;
+import lab2.document.Document;
 import lab2.factory.DocFactory;
+import lab2.transition.Converter;
 
 /**
  *
@@ -14,18 +17,18 @@ import lab2.factory.DocFactory;
  */
 public class DocsDataArray implements DocsData {
 
-  Map<String, Integer> currentDoc = null;
-  List<Map<String, Integer>> docs;
+  Document currentDoc = null;
+  List<Document> docs;
   DocFactory docFactory;
 
   public DocsDataArray(List<Map<String, Integer>> docs, DocFactory docFactory) {
-    this.docs = docs;
+    this.docs = Converter.mapsToDocs(docs);
     this.docFactory = docFactory;
   }
 
   @Override
   public void startDoc() {
-    this.currentDoc = this.docFactory.createDoc();
+    this.currentDoc = new Document(null, new TreeMap<String, Integer>());
     this.docs.add(currentDoc);
   }
 
@@ -36,23 +39,23 @@ public class DocsDataArray implements DocsData {
   @Override
   public void addTerm(String term) {
     if (!this.existDoc(term)) {
-      this.currentDoc.put(term, 1);
+      this.currentDoc.getTerms().put(term, 1);
     } else {
       incTermCount(term);
     }
   }
 
   private void incTermCount(String term) {
-    int termCount = this.currentDoc.get(term);
+    int termCount = this.currentDoc.getTerms().get(term);
     termCount++;
-    this.currentDoc.put(term, termCount);
+    this.currentDoc.getTerms().put(term, termCount);
   }
 
   private boolean existDoc(String term) {
-    return this.currentDoc.containsKey(term);
+    return this.currentDoc.getTerms().containsKey(term);
   }
 
   public List<Map<String, Integer>> getDocs() {
-    return this.docs;
+    return Converter.docsToMaps(docs);
   }
 }
