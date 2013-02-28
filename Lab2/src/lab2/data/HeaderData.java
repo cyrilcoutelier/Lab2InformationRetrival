@@ -5,6 +5,7 @@
 package lab2.data;
 
 import java.util.List;
+import java.util.Set;
 
 /**
  *
@@ -13,6 +14,8 @@ import java.util.List;
 public interface HeaderData {
   void tryRegisterTerm(String term);
   
+  void addClassName(String className);
+  
   boolean isIdxValid();
 
   void computeIdx();
@@ -20,4 +23,7 @@ public interface HeaderData {
   int getTermIndex(String term);
   
   List<String> getTerms();
+  
+  Set<String> getClassNames();
+  
 }

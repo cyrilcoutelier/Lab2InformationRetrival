@@ -7,6 +7,7 @@ package lab2.data;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 /**
  *
@@ -14,6 +15,7 @@ import java.util.Map;
  */
 public class HeaderDataMap implements HeaderData {
 
+  private Set<String> classNames;
   private Map<String, Integer> termsMap;
   boolean idxValid = false;
 
@@ -72,5 +74,15 @@ public class HeaderDataMap implements HeaderData {
   @Override
   public boolean isIdxValid() {
     return this.idxValid;
+  }
+
+  @Override
+  public void addClassName(String className) {
+    this.classNames.add(className);
+  }
+
+  @Override
+  public Set<String> getClassNames() {
+    return this.classNames;
   }
 }
