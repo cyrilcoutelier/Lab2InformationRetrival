@@ -5,10 +5,8 @@
 package lab2.data;
 
 import java.util.List;
-import java.util.Map;
 import lab2.document.Document;
 import lab2.factory.DocFactory;
-import lab2.transition.Converter;
 
 /**
  *
