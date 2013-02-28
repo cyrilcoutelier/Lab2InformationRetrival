@@ -94,6 +94,8 @@ public class ArffWriter {
       writeValue(entry, sb);
     }
 
+    sb.append(", ");
+    writeDocClassName(sb, document);
 
     sb.append("}");
     this.ps.println(sb.toString());
@@ -114,5 +116,10 @@ public class ArffWriter {
     if (className.contains(" ")) {
       sb.append("\"");
     }
+  }
+
+  private void writeDocClassName(StringBuilder sb, Document document) {
+    sb.append(this.documents.size()).append(" ");
+    this.writeClassName(document.getPath(), sb);
   }
 }
