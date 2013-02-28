@@ -5,6 +5,7 @@
 package lab2.prefixtree;
 
 import java.util.ArrayList;
+import java.util.Stack;
 import lab2.document.WordCount;
 
 /**
@@ -18,6 +19,8 @@ public class Node {
   private static String infoString = "";
   private static ArrayList<WordCount> wordCounts;
 
+  Stack stack;
+  
   public Node() {
     children = new Node[26];
     value = 0;
@@ -39,26 +42,28 @@ public class Node {
   }
 
   public ArrayList<WordCount> getWordCounts() {
-    caculateWordCount();
-    return wordCounts;
+     
+      
+      
+      
+      return null;
+  }
+  
+  public boolean hasValue() {
+      for (int i=0;i<26;++i) {
+          if (children != null) {
+              return true;
+          }
+      } 
+      return false;
   }
 
   public void caculateWordCount() {
-    boolean end = true;
-    for (int i = 0; i < 26; ++i) {
-      if (children[i] != null) {
-        end = false;
-        infoString += (char) (i + 'a');
-        if (this.value != 0) {
-          wordCounts.add(new WordCount(infoString, value));
-          //System.out.println("the string is : "+ infoString + " value : " + value);
-        }
-        children[i].caculateWordCount();
+      if (this.hasValue()) {
+          if (this.value!=0) {
+              wordCounts.add(new WordCount(infoString,value));
+          }
       }
-    }
-    if (end == true) {
-      infoString = "";
-    }
   }
 
   /*  

@@ -11,6 +11,7 @@ import java.util.TreeMap;
 import java.util.logging.Logger;
 import lab2.data.HeaderData;
 import lab2.data.HeaderDataMap;
+import lab2.document.DocumentStatistic;
 import lab2.document.DocumentStatistics;
 import lab2.document.WordCount;
 import lab2.writer.ArffWriter;
@@ -41,22 +42,23 @@ public class Lab2 {
     String relationName = args[2];
 
     try (PrintStream ps = new PrintStream(arffPath)) {
-      DocumentStatistics docStats = new DocumentStatistics(indexPath);
+      DocumentStatistic docStats = new DocumentStatistic(indexPath);
       docStats.classifyFiles();
       HeaderData headerData = createHeaderData(docStats.getCollectionStatistics());
+      
       ArffWriter arffWriter = new ArffWriter(ps, headerData, docStats.getDocumentStatistics(), relationName);
-
+          
       arffWriter.write();
     }
   }
 
   static private HeaderData createHeaderData(ArrayList<WordCount> collectionStatistics) {
     HeaderData headerData = new HeaderDataMap(new TreeMap<String, Integer>());
-
+    
     for (WordCount wordCount : collectionStatistics) {
       headerData.tryRegisterTerm(wordCount.word);
     }
-
+    
     log.info("generating term indexes");
     headerData.computeIdx();
     log.info("DONE");
