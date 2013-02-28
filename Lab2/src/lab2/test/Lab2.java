@@ -20,7 +20,6 @@ import lab2.data.HeaderData;
 import lab2.data.HeaderDataMap;
 import lab2.document.Document;
 import lab2.document.IndexParser;
-import lab2.document.WordCount;
 import lab2.factory.DocFactory;
 import lab2.transition.Converter;
 import lab2.writer.ArffWriter;
